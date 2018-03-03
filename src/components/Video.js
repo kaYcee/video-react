@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { isVideoChild, mediaProperties, throttle } from '../utils';
 
 const propTypes = {
+  id: PropTypes.string,
   actions: PropTypes.object,
   player: PropTypes.object,
   children: PropTypes.any,
@@ -518,7 +519,7 @@ export default class Video extends Component {
 
   render() {
     const {
-      loop, poster, preload, src, autoPlay,
+      id, loop, poster, preload, src, autoPlay,
       playsInline, muted, crossOrigin
     } = this.props;
 
@@ -528,6 +529,7 @@ export default class Video extends Component {
           'video-react-video',
           this.props.className
         )}
+        id={id}
         crossOrigin={crossOrigin}
         ref={(c) => { this.video = c; }}
         muted={muted}
